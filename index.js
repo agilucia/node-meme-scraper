@@ -6,12 +6,16 @@ const website = new URL('https://memegen-link-examples-upleveled.netlify.app/');
 const response = await fetch(website);
 const body = await response.text();
 
-//console.log(body);
+// console.log(body);
 
 const $ = cheerio.load(body);
 
-//console.log($);
+// console.log($);
 
-$.html();
+const htmlContent = $.html();
 
-console.log($.html());
+// console.log(htmlContent);
+
+const matchingElements = $.html('img');
+
+console.log(matchingElements);
