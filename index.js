@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
+import * as fs from 'node:fs';
 
 const website = new URL('https://memegen-link-examples-upleveled.netlify.app/');
 
@@ -21,16 +22,22 @@ for (let i = 0; i <= 9; i++) {
   imageUrls.push(html[i].attribs.src);
 }
 
-console.log(imageUrls);
+// console.log(imageUrls);
 
-// console.log($);
+// for each loop to get jpeg data for each list item of imageUrls
 
-// const htmlContent = $.html();
+const memeFolder = './memes';
 
-// console.log(htmlContent);
-
-// const matchingElements = $.html('img');
-
-// console.log(matchingElements);
-
-// const imageUrls = new Array();
+fs.access(memeFolder, (error) => {
+  if (error) {
+    fs.mkdir(memeFolder, (err) => {
+      if (err) {
+        console.log('Something went wrong!');
+      } else {
+        console.log('Directory created.');
+      }
+    });
+  } else {
+    console.log('Meme folder already exists.');
+  }
+});
