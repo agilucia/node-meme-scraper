@@ -30,11 +30,11 @@ fs.access(memeFolder, (error) => {
       if (err) {
         console.log('Something went wrong!');
       } else {
-        console.log('Directory created.');
+        console.log('Memes saved to new folder.');
       }
     });
   } else {
-    console.log('Meme folder already exists.');
+    console.log('Memes saved to existing folder.');
   }
 });
 
